@@ -6,7 +6,56 @@ const Form = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+    // const [firstNameError, setFirstNameError] = useState('');
+    // const [lastNameError, setLastNameError] = useState('');
+    // const [emailError, setEmailError] = useState('');
+    // const [passwordError, setPasswordError] = useState('');
+    // const [confirmPasswordError, setConfirmPasswordError] = useState('');
+
+    // const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+
+    // const handleFirst = (e) => {
+    //     if(e.target.value.length < 2) {
+    //         setFirstNameError('First Name must be 2 characters or more')
+    //     } else {
+    //         setFirstNameError('');
+    //         setFirstName(e.target.value);
+    //     }
+    // }
+    // const handleLast = (e) => {
+    //     if(e.target.value.length < 2) {
+    //         setLastNameError('Last Name must be 2 characters or more')
+    //     } else {
+    //         setLastNameError('');
+    //         setLastName(e.target.value);
+    //     }
+    // }
+    // const handleEmail = (e) => {
+    //     if(e.target.value.length < 5) {
+    //         setEmailError('Email must be 5 characters or more')
+    //     } else {
+    //         setEmailError('');
+    //         setEmail(e.target.value);
+    //     }
+    // }
+    // const handlePassword = (e) => {
+    //     if(e.target.value.length < 8) {
+    //         setPasswordError('Password must be 8 characters or more')
+    //     } else {
+    //         setPasswordError('');
+    //         setPassword(e.target.value);
+    //     }
+    // }
+    // const handleConfirmPassword = (e) => {
+    //     if(password !== e.target.value) {
+    //         setConfirmPasswordError('Passwords do not match')
+    //     } else {
+    //         setConfirmPasswordError('');
+    //         setConfirmPassword(e.target.value);
+    //     }
+    // }
+
+
 
     // const createUser = (e) => {
     //     e.preventDefault();
@@ -22,18 +71,19 @@ const Form = (props) => {
 
     return (
         <div>
-            <form>
+            <form onSubmit={ (e) => e.preventDefault() }>
                 <div>
                     <label htmlFor="firstName">First Name: </label>
                     <input type='text' name='firstName' onChange={(e) => setFirstName(e.target.value)} />
-                </div>
-                {
-                    firstName.length > 0 ?
+                    {
+                        firstName.length > 0 ?
                         firstName.length < 2 ?
-                            <p className='error'>First Name must be at least 2 characters long</p>
+                            <p className='error'>First Name must be ast least 2 characters long</p>
                             : null
                         : null
-                }
+                    }
+                </div>
+                
                 <div>
                     <label htmlFor='lastName'>Last Name: </label>
                     <input type='text' name='lastName' onChange={(e) => setLastName(e.target.value)} />
@@ -61,8 +111,8 @@ const Form = (props) => {
                     <input type='password' name='password' onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 {
-                    email.length > 0 ?
-                        email.length < 8 ?
+                    password.length > 0 ?
+                        password.length < 8 ?
                             <p className='error'>Password must be ast least 8 characters long</p>
                             : null
                         : null
