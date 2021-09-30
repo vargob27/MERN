@@ -1,3 +1,4 @@
+const { request } = require('express');
 const Person = require('../models/person.model');
 module.exports.index = (request, response) => {
     response.json({
@@ -18,4 +19,9 @@ module.exports.getAllPeople = (req, res) => {
     Person.find()
         .then((allPeople) => res.json(allPeople))
         .catch((err) => console.log(err));
+};
+module.exports.getPerson = (req, res) => {
+    Person.findOne({_id:req.params.id})
+        .then(person => res.json(person))
+        .catch(err => res.json(err))
 };
