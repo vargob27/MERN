@@ -13,11 +13,16 @@ const Main = () => {
                 setLoaded(true);
             });
     }, []);
+
+    const removeFromDom = personId => {
+        setPeople(people.filter(person => person._id !== personId));
+
+    }
     return (
         <div>
             <PersonForm/>
             <hr/>
-            { loaded && <PersonList people={people}/> }
+            { loaded && <PersonList people={people} removeFromDom={removeFromDom}/> }
         </div>
     )
 }
