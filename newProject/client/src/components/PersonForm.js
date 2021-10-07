@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+// import io from 'socket.io-client';
 
 const PersonForm = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [errorMessage, setErrorMessage] = useState({});
+    // const [socket, setSocket] = useState( () => io(":8000") );
     
     const onSubmitHandler = e => {
         e.preventDefault();
@@ -16,7 +18,11 @@ const PersonForm = () => {
             .then(res=>{
                 if(res.data.errors) {
                     setErrorMessage(res.data.errors);
-                } else {console.log(res);}
+                } else {
+                    console.log(res);
+                    // socket.emit("added_new_person", res.data);
+                    // socket.disconnect();
+                }
             })
             .catch(err=>{
                 console.log(err);

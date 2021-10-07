@@ -26,7 +26,9 @@ module.exports.getPerson = (req, res) => {
         .catch(err => res.json(err))
 };
 module.exports.updatePerson = (req, res) => {
-    Person.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+    console.log("better work or else");
+
+    Person.findOneAndUpdate({_id: req.params.id}, req.body, {new:true, runValidators:true})
         .then(updatedPerson => res.json(updatedPerson))
         .catch(err => res.json(err))
 };

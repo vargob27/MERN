@@ -6,7 +6,7 @@ import ProductMain from './views/ProductMain';
 import Detail from './views/Detail';
 import ProductDetails from './views/ProductDetails';
 import Update from './views/Update';
-
+import UpdateProduct from './views/UpdateProduct';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <Update path="/people/:id/edit"/>
           <ProductMain path="/products/"/>
           <ProductDetails path="/products/:id"/>
+          <UpdateProduct path="/products/:id/edit"/>
       </Router>
     </div>
     

@@ -13,12 +13,19 @@ const ProductMain = () => {
                 setLoaded(true);
             });
     }, []);
+
+    const removerFromDom = productId => {
+        setProducts(products.filter(product => product._id !== productId))
+    }
+    // const addToDom = productId => {
+    //     setProducts(products.push(product => product._id !== productId))
+    // }
     return (
         <div>
             <h1>Product Manager:</h1>
             <ProductForm/>
             <hr/>
-            { loaded && <ProductList products={products}/> }
+            { loaded && <ProductList products={products} removeFromDom={removerFromDom}/> }
         </div>
     )
 }

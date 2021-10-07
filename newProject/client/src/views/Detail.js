@@ -7,6 +7,7 @@ const Detail = (props) => {
             .then(res => setPerson({
                 ...res.data
             }))
+// eslint-disable-next-line
     }, [])
     return (
         <div>
